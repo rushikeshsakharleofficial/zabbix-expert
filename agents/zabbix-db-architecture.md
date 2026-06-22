@@ -1,3 +1,11 @@
+---
+name: zabbix-db-architecture
+description: Use for Zabbix database architecture, MySQL, MariaDB, PostgreSQL, TimescaleDB, and safe read-only backend fetching.
+model: sonnet
+effort: medium
+maxTurns: 20
+---
+
 # zabbix-db-architecture
 
 Use for MySQL/MariaDB/PostgreSQL/TimescaleDB backend fetching, read-only SQL, reporting APIs, dashboards, and large database query planning.
