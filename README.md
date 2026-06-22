@@ -9,7 +9,7 @@ Design, scale, troubleshoot, automate, and extend Zabbix from small single-serve
 <br>
 
 ![Zabbix](https://img.shields.io/badge/Zabbix-7.x%20Ready-dc382d?style=for-the-badge&logo=zabbix&logoColor=white)
-![Claude Code](https://img.shields.io/badge/Claude%20Code-Skill-6f42c1?style=for-the-badge)
+![Claude Code](https://img.shields.io/badge/Claude%20Code-Plugin%20%2B%20Skill-6f42c1?style=for-the-badge)
 ![OpenAI Codex](https://img.shields.io/badge/OpenAI%20Codex-Agent%20Skill-10a37f?style=for-the-badge&logo=openai&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL%20%2B%20TimescaleDB-Ready-336791?style=for-the-badge&logo=postgresql&logoColor=white)
 ![MySQL](https://img.shields.io/badge/MySQL%20%2F%20MariaDB-Compatible-4479a1?style=for-the-badge&logo=mysql&logoColor=white)
@@ -18,26 +18,11 @@ Design, scale, troubleshoot, automate, and extend Zabbix from small single-serve
 <br>
 
 <table>
-<tr>
-<td><b>Architecture</b></td>
-<td>Small, medium, large, HA, proxy-based, multi-region, and DR-ready Zabbix designs.</td>
-</tr>
-<tr>
-<td><b>Automation</b></td>
-<td>Safe API workflows, bulk onboarding, import comparison, dry-run planning, and desired-state operations.</td>
-</tr>
-<tr>
-<td><b>Database</b></td>
-<td>Smart read-only backend fetching for PostgreSQL, TimescaleDB, MySQL, and MariaDB.</td>
-</tr>
-<tr>
-<td><b>Templates</b></td>
-<td>100% custom Zabbix template factory using native Zabbix features first.</td>
-</tr>
-<tr>
-<td><b>Capacity</b></td>
-<td>Adaptive scaling plans for high I/O, queues, cache pressure, proxy backlog, and NVPS growth.</td>
-</tr>
+<tr><td><b>Architecture</b></td><td>Small, medium, large, HA, proxy-based, multi-region, and DR-ready Zabbix designs.</td></tr>
+<tr><td><b>Automation</b></td><td>Safe API workflows, bulk onboarding, import comparison, dry-run planning, and desired-state operations.</td></tr>
+<tr><td><b>Database</b></td><td>Smart read-only backend fetching for PostgreSQL, TimescaleDB, MySQL, and MariaDB.</td></tr>
+<tr><td><b>Templates</b></td><td>100% custom Zabbix template factory using native Zabbix features first.</td></tr>
+<tr><td><b>Capacity</b></td><td>Adaptive scaling plans for high I/O, queues, cache pressure, proxy backlog, and NVPS growth.</td></tr>
 </table>
 
 </div>
@@ -46,20 +31,101 @@ Design, scale, troubleshoot, automate, and extend Zabbix from small single-serve
 
 ## What is this?
 
-`zabbix-expert` is a production-focused Agent Skill plugin for **Claude Code** and **OpenAI Codex**. It gives coding agents a structured Zabbix operations brain: architecture rules, API automation patterns, DB query guardrails, custom template design rules, scaling playbooks, safe scripts, and reference documents.
+`zabbix-expert` is a production-focused Agent Skill plugin for **Claude Code** and **OpenAI Codex**. It gives coding agents a structured Zabbix operations brain: architecture rules, API automation patterns, database query guardrails, custom template design rules, scaling playbooks, safe scripts, and reference documents.
 
-It is built for real infrastructure teams that manage Zabbix across:
+It is built for real teams managing Zabbix across single-node labs, medium production deployments, thousands of hosts, multiple proxies, PostgreSQL/TimescaleDB, MySQL/MariaDB, distributed data centers, cloud/private networks, high-I/O monitoring workloads, and custom dashboards.
 
-- single-node labs
-- medium production deployments
-- thousands of hosts
-- multiple proxies
-- PostgreSQL / TimescaleDB backends
-- MySQL / MariaDB backends
-- distributed data centers
-- cloud/private networks
-- high I/O monitoring workloads
-- custom dashboards and backend panels
+---
+
+## Installation
+
+Claude Code supports this repository in three useful modes:
+
+1. **Marketplace plugin** for shareable/team installation.
+2. **Local plugin** for testing with `--plugin-dir`.
+3. **Plain skill** for short project-local `/zabbix-expert` usage.
+
+This repository includes:
+
+| File | Purpose |
+|---|---|
+| [`.claude-plugin/plugin.json`](./.claude-plugin/plugin.json) | Claude Code plugin manifest. Gives the plugin its name, version, description, author, license, and metadata. |
+| [`.claude-plugin/marketplace.json`](./.claude-plugin/marketplace.json) | Marketplace catalog so Claude Code can install this repo as a plugin marketplace. |
+| [`SKILL.md`](./SKILL.md) | Main single-skill entrypoint. |
+| [`AGENTS.md`](./AGENTS.md) | Codex/agent operating rules. |
+
+### Option 1: Install from this GitHub repo as a Claude Code marketplace plugin
+
+Run inside Claude Code:
+
+```text
+/plugin marketplace add rushikeshsakharleofficial/zabbix-expert
+/plugin install zabbix-expert@zabbix-expert-marketplace
+/reload-plugins
+```
+
+Plugin skills are namespaced by the plugin name:
+
+```text
+/zabbix-expert:zabbix-expert design a large Zabbix architecture for 2000 hosts with PostgreSQL, TimescaleDB, proxies, and HA
+```
+
+### Option 2: Test locally with `--plugin-dir`
+
+Use this while developing or validating the plugin before marketplace installation.
+
+```bash
+git clone https://github.com/rushikeshsakharleofficial/zabbix-expert.git
+cd zabbix-expert
+claude --plugin-dir .
+```
+
+Then run inside Claude Code:
+
+```text
+/zabbix-expert:zabbix-expert create a smooth expansion plan for high I/O and queue delay
+```
+
+### Option 3: Install as a personal skills-directory plugin
+
+Claude Code can load a plugin folder from the personal skills directory when the folder contains `.claude-plugin/plugin.json`.
+
+```bash
+mkdir -p ~/.claude/skills
+git clone https://github.com/rushikeshsakharleofficial/zabbix-expert.git ~/.claude/skills/zabbix-expert
+```
+
+Then restart Claude Code or run:
+
+```text
+/reload-plugins
+```
+
+### Option 4: Use as a plain project skill without plugin namespace
+
+Use this when you want the shorter direct skill command inside one project.
+
+```bash
+mkdir -p .claude/skills/zabbix-expert
+cp -a SKILL.md AGENTS.md agents references assets scripts .claude/skills/zabbix-expert/
+```
+
+Then invoke it as:
+
+```text
+/zabbix-expert design a custom Zabbix template for an HTTP API service
+```
+
+### Claude Code version check
+
+If `/plugin` is not recognized, update Claude Code first:
+
+```bash
+claude --version
+npm install -g @anthropic-ai/claude-code@latest
+# or, if installed with Homebrew:
+brew upgrade claude-code
+```
 
 ---
 
@@ -159,6 +225,9 @@ flowchart LR
 
 ```text
 zabbix-expert/
+├── .claude-plugin/
+│   ├── plugin.json
+│   └── marketplace.json
 ├── SKILL.md
 ├── AGENTS.md
 ├── README.md
@@ -173,6 +242,8 @@ zabbix-expert/
 
 | File | Purpose |
 |---|---|
+| [`.claude-plugin/plugin.json`](./.claude-plugin/plugin.json) | Claude Code plugin manifest. |
+| [`.claude-plugin/marketplace.json`](./.claude-plugin/marketplace.json) | Claude Code marketplace catalog. |
 | [`SKILL.md`](./SKILL.md) | Main skill definition and router used by Claude Code / Codex. |
 | [`AGENTS.md`](./AGENTS.md) | Codex project instructions and operational guardrails. |
 | [`README.md`](./README.md) | Project documentation. |
@@ -223,38 +294,7 @@ zabbix-expert/
 
 ---
 
-## Install in Claude Code
-
-Copy this skill into your project or user-level Claude skills directory:
-
-```bash
-mkdir -p .claude/skills
-cp -a zabbix-expert .claude/skills/
-```
-
-Use it explicitly:
-
-```text
-/zabbix-expert design a large Zabbix 7.4 architecture for 2000 hosts with PostgreSQL, TimescaleDB, proxies, and HA
-```
-
----
-
-## Use with Codex
-
-Copy the repository into your Codex skill/workspace location. For project-level instructions, keep [`AGENTS.md`](./AGENTS.md) in the repository root or merge it into your existing project `AGENTS.md`.
-
-Example:
-
-```text
-$zabbix-expert create a smooth expansion plan because our Zabbix server has high I/O and queue delay
-```
-
----
-
 ## Safety model
-
-This skill is intentionally conservative.
 
 ```mermaid
 flowchart LR
@@ -327,23 +367,13 @@ python3 scripts/zbx-custom-template-linter.py assets/custom-template/*.yaml
 
 ---
 
-## Recommended workflow
+## Star history
 
-```mermaid
-sequenceDiagram
-    participant User
-    participant Agent as Claude Code / Codex
-    participant Skill as zabbix-expert
-    participant Repo as Project Repo
-    participant Zabbix as Zabbix/API/DB
+<div align="center">
 
-    User->>Agent: Ask for Zabbix task
-    Agent->>Skill: Load SKILL.md and matching agent
-    Skill->>Agent: Select playbook and guardrails
-    Agent->>Repo: Inspect files safely
-    Agent->>Zabbix: Use read-only diagnostics first
-    Agent->>User: Produce plan, scripts, validation, rollback
-```
+[![Star History Chart](https://api.star-history.com/svg?repos=rushikeshsakharleofficial/zabbix-expert&type=Date)](https://star-history.com/#rushikeshsakharleofficial/zabbix-expert&Date)
+
+</div>
 
 ---
 
