@@ -1,0 +1,34 @@
+{
+  "name": "zabbix-expert-marketplace",
+  "owner": {
+    "name": "Rushikesh Sakharle"
+  },
+  "description": "Marketplace catalog for the zabbix-expert Claude Code plugin.",
+  "version": "1.0.0",
+  "plugins": [
+    {
+      "name": "zabbix-expert",
+      "displayName": "Zabbix Expert",
+      "source": "./",
+      "description": "Master Zabbix architecture, API automation, database backend fetching, custom template factory, and capacity adaptation plugin for Claude Code.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Rushikesh Sakharle",
+        "url": "https://github.com/rushikeshsakharleofficial"
+      },
+      "homepage": "https://github.com/rushikeshsakharleofficial/zabbix-expert",
+      "repository": "https://github.com/rushikeshsakharleofficial/zabbix-expert",
+      "license": "MIT",
+      "keywords": [
+        "zabbix",
+        "monitoring",
+        "observability",
+        "sre",
+        "devops",
+        "claude-code",
+        "skill"
+      ],
+      "category": "devops"
+    }
+  ]
+}
