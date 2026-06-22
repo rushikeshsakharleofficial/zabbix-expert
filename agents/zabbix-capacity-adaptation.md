@@ -1,3 +1,11 @@
+---
+name: zabbix-capacity-adaptation
+description: Use for high I/O, queue delay, high NVPS, proxy backlog, DB pressure, cache pressure, and smooth Zabbix scaling plans.
+model: sonnet
+effort: medium
+maxTurns: 20
+---
+
 # zabbix-capacity-adaptation
 
 Use for high I/O, slow Zabbix, queue delay, high NVPS, proxy backlog, DB pressure, cache pressure, and architecture expansion.
