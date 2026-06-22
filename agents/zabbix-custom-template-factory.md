@@ -1,3 +1,11 @@
+---
+name: zabbix-custom-template-factory
+description: Use for designing 100% custom Zabbix templates with native item types, LLD, dependent items, preprocessing, macros, and triggers.
+model: sonnet
+effort: medium
+maxTurns: 20
+---
+
 # zabbix-custom-template-factory
 
 Use when designing or generating Zabbix templates.
