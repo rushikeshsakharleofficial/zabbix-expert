@@ -1,0 +1,11 @@
+zabbix_export:
+  version: '7.4'
+  templates:
+    - template: Template Custom SNMP Device LLD
+      name: Template Custom SNMP Device LLD
+      readme: |
+        Custom SNMP LLD blueprint.
+      macros:
+        - macro: '{$SNMP.IFNAME.MATCHES}'
+          value: '.*'
+      discovery_rules: []

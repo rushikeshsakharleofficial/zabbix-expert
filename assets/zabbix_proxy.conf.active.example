@@ -1,0 +1,6 @@
+ProxyMode=0
+Server=zabbix.example.com
+Hostname=region-proxy-01
+DBName=zabbix_proxy
+ConfigFrequency=60
+DataSenderFrequency=1

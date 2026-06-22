@@ -1,0 +1,7 @@
+Server=zabbix.example.com
+ServerActive=zabbix.example.com
+HostnameItem=system.hostname
+TLSConnect=psk
+TLSAccept=psk
+TLSPSKIdentity=REDACTED
+TLSPSKFile=/etc/zabbix/zabbix_agent2.psk

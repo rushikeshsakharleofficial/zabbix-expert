@@ -1,0 +1,13 @@
+{
+  "jsonrpc": "2.0",
+  "method": "maintenance.create",
+  "params": {
+    "name": "Example maintenance",
+    "active_since": 1735689600,
+    "active_till": 1735693200,
+    "maintenance_type": 0,
+    "groups": [{"groupid": "2"}],
+    "timeperiods": [{"timeperiod_type": 0, "period": 3600}]
+  },
+  "id": 1
+}

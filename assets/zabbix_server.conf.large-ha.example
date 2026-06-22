@@ -1,0 +1,8 @@
+# Example only. Tune after measurement.
+HANodeName=zbx-node-1
+NodeAddress=10.0.0.11:10051
+CacheSize=1G
+HistoryCacheSize=512M
+HistoryIndexCacheSize=256M
+ValueCacheSize=512M
+TrendCacheSize=256M

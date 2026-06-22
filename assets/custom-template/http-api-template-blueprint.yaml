@@ -1,0 +1,11 @@
+zabbix_export:
+  version: '7.4'
+  templates:
+    - template: Template Custom HTTP API Service
+      name: Template Custom HTTP API Service
+      readme: |
+        HTTP agent master item plus dependent item pattern.
+      macros:
+        - macro: '{$API.URL}'
+          value: 'https://example.invalid/health'
+      items: []

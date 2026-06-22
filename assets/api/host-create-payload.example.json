@@ -1,0 +1,11 @@
+{
+  "jsonrpc": "2.0",
+  "method": "host.create",
+  "params": {
+    "host": "example-host",
+    "groups": [{"groupid": "2"}],
+    "interfaces": [{"type": 1, "main": 1, "useip": 1, "ip": "192.0.2.10", "dns": "", "port": "10050"}],
+    "templates": [{"templateid": "10001"}]
+  },
+  "id": 1
+}

@@ -1,0 +1,2 @@
+host,visible_name,groups,templates,proxy,ip,dns,port
+web01,web01,Linux servers,Template Custom Linux,,192.0.2.10,,10050

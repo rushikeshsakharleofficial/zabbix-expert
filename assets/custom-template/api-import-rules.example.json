@@ -1,0 +1,9 @@
+{
+  "rules": {
+    "templates": {"createMissing": true, "updateExisting": true},
+    "templateGroups": {"createMissing": true},
+    "items": {"createMissing": true, "updateExisting": true, "deleteMissing": false},
+    "discoveryRules": {"createMissing": true, "updateExisting": true, "deleteMissing": false},
+    "triggers": {"createMissing": true, "updateExisting": true, "deleteMissing": false}
+  }
+}

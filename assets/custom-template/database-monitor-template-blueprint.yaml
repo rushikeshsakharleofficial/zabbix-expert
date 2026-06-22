@@ -1,0 +1,11 @@
+zabbix_export:
+  version: '7.4'
+  templates:
+    - template: Template Custom Database Readonly
+      name: Template Custom Database Readonly
+      readme: |
+        Read-only DB monitor template blueprint.
+      macros:
+        - macro: '{$DB.CONNSTRING}'
+          value: '<set-on-host>'
+      items: []

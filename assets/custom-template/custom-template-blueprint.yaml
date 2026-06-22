@@ -1,0 +1,19 @@
+zabbix_export:
+  version: '7.4'
+  template_groups:
+    - uuid: 00000000000000000000000000000001
+      name: Templates/Custom
+  templates:
+    - uuid: 00000000000000000000000000000002
+      template: Template Custom Example by Native Method
+      name: Template Custom Example by Native Method
+      readme: |
+        Custom native-first template blueprint.
+      groups:
+        - name: Templates/Custom
+      macros:
+        - macro: '{$CHECK_INTERVAL}'
+          value: 1m
+      items: []
+      discovery_rules: []
+      triggers: []

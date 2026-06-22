@@ -1,0 +1,11 @@
+zabbix_export:
+  version: '7.4'
+  templates:
+    - template: Template Custom Agent2 Native
+      name: Template Custom Agent2 Native
+      readme: |
+        Agent2 native item/plugin blueprint.
+      macros:
+        - macro: '{$CHECK_INTERVAL}'
+          value: 1m
+      items: []

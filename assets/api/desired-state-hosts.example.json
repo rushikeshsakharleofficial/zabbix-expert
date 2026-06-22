@@ -1,0 +1,10 @@
+{
+  "hosts": [
+    {
+      "host": "web01",
+      "groups": ["Linux servers"],
+      "templates": ["Template Custom Linux"],
+      "interfaces": [{"type": "agent", "ip": "192.0.2.10", "port": "10050"}]
+    }
+  ]
+}
