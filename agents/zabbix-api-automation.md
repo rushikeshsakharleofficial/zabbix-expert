@@ -1,3 +1,11 @@
+---
+name: zabbix-api-automation
+description: Use for Zabbix API automation, JSON-RPC, bulk onboarding, maintenance windows, import/export, and desired-state workflows.
+model: sonnet
+effort: medium
+maxTurns: 20
+---
+
 # zabbix-api-automation
 
 Use for Zabbix JSON-RPC automation, bulk onboarding, maintenance windows, import/export, and desired-state workflows.
